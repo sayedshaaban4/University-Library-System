@@ -1,0 +1,59 @@
+
+{% load static %}
+
+
+{% block content %}
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="{% static 'css\Home.css'%}">
+        <title> Home </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            $("#aboutus").click(function(){
+                $.ajax({
+                    url:'aboutus',
+                    success:function(result){
+                        $("#messege").html(result)
+
+                    }
+                });
+            });
+            });
+            $(document).ready(function(){
+            $("#contact").click(function(){
+                $.ajax({
+                    url:'contact',
+                    success:function(result){
+                        $("#messege").html(result)
+
+                    }
+                });
+            });
+            });
+
+        </script>
+    </head>
+    <body style="background-image: url({% static 'images/library.jpg' %}); background-size: cover">
+        <div id="ListButtons">
+            <div class="Name">FCAI  Library </div>
+            <div class="button">
+                <a href="{% url 'Home'%}"><button>Home</button></a>
+                <button id="aboutus">About Us</button>
+                <button id="contact">Contact</button> 
+             </div> 
+        </div>
+        <div class="page">
+            <p class="p1">Welcome in University Library </p>
+            <p class="p2">reading is food of mind and spirit</p>
+            <div class="d2">
+                <a href="{% url 'login'%}" ><button>Login</button></a>
+                <a href="{% url 'FormPage'%}"><button>Sign-up</button></a>
+            </div>
+        </div>
+        <br><br>
+        <p id="messege"></p>
+    </body>
+</html>
+ {% endblock content %}

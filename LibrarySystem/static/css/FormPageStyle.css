@@ -1,0 +1,105 @@
+
+  
+*{
+    font-family: 'segoe ui light';
+    margin: 0;
+ }
+ .header{
+   width: 100%;
+   text-align: center;
+   margin-top: 10px;
+   font-size: 50px;
+   font-weight: bold;
+ }
+
+ body{
+   background-image: url(../images/books.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 100%;
+   position: relative;
+ }
+  
+  .username, .pass, .date, .email {
+    width: 100%;
+    height: 40px;
+    padding: 12px 19px;
+    margin-bottom: 20px;
+    border: 1px solid #abc;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+
+  
+  input[type=submit] {
+    width: 25%;
+    background-color: #4eb651;
+    color: white;
+    padding: 14px;
+    margin: 30px 0;
+    margin-right: 150px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #4a9e4d;
+  }
+  
+  .form {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    margin: auto ;
+    margin-top: 20px;
+    height: 470px;
+    width: 400px;
+    position: relative;
+  }
+  
+  button {
+    background-color: rgb(184, 173, 127); 
+    padding: 0;
+    margin: 10px 2px 0px 10px;
+    border-radius: 10px;
+    border: none;
+  }
+  
+  a{
+    background-color: rgb(207, 199, 161); 
+    color: black; 
+    padding: 15px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition-duration: 0.4s;
+    font-family: cursive;
+  }
+  
+  
+  .home{
+    position: absolute;
+  }
+
+  .form label{
+    font-size: large;
+    font-weight: bold;
+  }
+  
+.signUp{
+  margin-right: 50px;
+}
+.Gender{
+  margin-right: 78px;
+}
+
+.Male{
+  margin-right: 12px;
+}
+
+.SU{
+  margin-top: 15px;
+}
+  
+  
+  

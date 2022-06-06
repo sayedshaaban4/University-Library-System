@@ -1,0 +1,56 @@
+{% load static %}
+{% block student %}
+
+<html>
+<head>
+    <title> {{user.username}} </title>
+    <link rel="stylesheet" href="{% static 'css/Student.css'%}">
+</head>
+
+<body >
+
+    <div class="hhh">
+    <div>FCAI Library</div>
+    <a href="{% url 'logout'%}"><button type="button">Log out </button></a>
+    </div>
+
+
+    <div class="container">
+<p id="ad">Student</p>
+
+<div class="yarab">
+    <div class="profile">
+        <img src="{% static 'images/avatar3.png'%}" alt="">
+        <br>
+        
+    </div>
+
+    <div class="adding">
+<button class="AvailableBooks">
+    <a href="{% url 'Books'%}">All Books</a>
+</button>
+
+<button class="AvailableBooks">
+    <a href="{% url 'mybooks'%}">My Books</a>
+</button>
+
+</div>    
+
+</div>
+    <div class="information">
+        <p>Name : {{user.username}}</p>
+        <P>Email : {{user.email}}</P>
+<button>
+    <a href="{% url 'updateProfile'%}">Update</a>
+</button>
+    </div>
+</div>
+
+<script src="{% static 'JS/Admin.js'%}"></script>
+
+</body>
+
+{% endblock student %}
+
+
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+{% block operations %}
+
+<html>
+    <head>
+     <link rel="stylesheet" href="{% static 'css/Operations.css'%}">
+    </head>
+    <body style="background-image: url({% static 'images/Book-Glasses-Coffee.jpg' %}); background-size: cover; text-align: center;">
+      <header>Enjoy Your Reading</header>
+        <div>
+        <img src="{% static 'images/book.png'%}" alt="">
+        <br><br> <br>
+        <label id ="label1">{{book_detail.bookname}}</label>
+        <br> <br> <br>
+        <label id ="label2">Rating:5</label>
+        <label id="star">&star;</label>
+        <br><br> <br>
+        <a href="{% url 'extend' book_detail.slug%}"><button>Extend</button></a>
+        <a href="{% url 'returnBook' book_detail.slug%}"><button>Return</button></a>
+      
+        
+        </div>
+
+
+
+
+    </body>
+</html>
+{% endblock operations %}

@@ -1,0 +1,68 @@
+
+{% load static %}
+{% block books %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/Books.css'%}">
+    <title>BOOKS</title>
+</head>
+<body>
+    <button class="backButton">
+        {% if profile.type == "Admin"%}
+        <a href="{% url 'admin'%}">Back to Profile</a>
+        {% endif %}
+        {% if profile.type == "Student"%}
+        <a href="{% url 'student'%}">Back to Profile</a>
+        {% endif %}
+    </button>
+    <br>
+    <header class="header">Available Books</header>
+    <br>
+    <table calss ="table">
+
+    <tr class="tableHeader">
+        <form action="{%url 'Books'%}" method="GET">
+        <th>bookName
+            <input type="text" placeholder="search by name" name="name">
+            <button class="okButton" type="submit" onsubmit="">ok</button>
+        </form>
+        </th>
+        <form action="{%url 'Books'%}" method="GET">
+        <th>bookAuthor
+            <input type="text" placeholder="search by author" name="author">
+            <button class="okButton" type="submit" onsubmit="">ok</button>
+        </th>
+        </form>
+        <form action="{%url 'Books'%}" method="GET">
+        <th>bookISBN
+            <input type="text" placeholder="search by ISBN" name="isbn">
+            <button class="okButton" type="submit" onsubmit="">ok</button>
+        </th>
+        </form>
+        <form action="{%url 'Books'%}" method="GET">
+        <th>
+            PublicationYear
+            <input type="text" placeholder="search by Year" name="publicationyear">
+            <button class="okButton" type="submit" onsubmit="">ok</button>
+        </th>
+    </form>
+    </tr>
+
+     {%for book in books%}
+     {% if book.available == True %}
+    <tr>
+
+        <td name="bookname"><a href="{% url 'operations' book.slug %}">{{book.bookname}}</a></td>
+        <td name="bookauthor">{{book.bookauthor}}</td>
+        <td name="ISBN">{{book.ISBN}}</td>
+        <td name="Year">{{book.Year}}</td>
+
+
+    </tr> 
+    {% endif %}
+    {% endfor %}
+    </table>
+</body>
+</html>
+{% endblock books%}

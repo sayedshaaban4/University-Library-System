@@ -1,0 +1,57 @@
+{% load static %}
+{% block books %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/Books.css'%}">
+    <title>BOOKS</title>
+</head>
+<body>
+    <button class="backButton">
+        {% if profile.type == "Admin"%}
+        <a href="{% url 'admin'%}">Back to Profile</a>
+        {% endif %}
+        {% if profile.type == "Student"%}
+        <a href="{% url 'student'%}">Back to Profile</a>
+        {% endif %}
+    </button>
+    <br>
+    <br>
+    <header class="header">All Books</header>
+    <br>
+    <table calss ="table">
+    <tr class="tableHeader">
+
+        <th>bookName
+            <input type="text" placeholder="search by name">
+            <button class="okButton" type="submit" onsubmit="">ok</button>
+        </th>
+        <th>bookAuthor
+            <input type="text" placeholder="search by author">
+            <button class="okButton" type="submit" onsubmit="">ok</button>
+        </th>
+        <th>bookISBN
+            <input type="text" placeholder="search by ISBN">
+            <button class="okButton" type="submit" onsubmit="">ok</button>
+        </th>
+        <th>
+            PublicationYear
+            <input type="text" placeholder="search by Year">
+            <button class="okButton" type="submit" onsubmit="">ok</button>
+        </th>
+    </tr>
+    {%for book in books%}
+    <tr>
+
+        <td name="bookname"><a href="{% url 'updateBook' book.slug %}">{{book.bookname}}</a></td>
+        <td name="bookauthor">{{book.bookauthor}}</td>
+        <td name="ISBN">{{book.ISBN}}</td>
+        <td name="Year">{{book.Year}}</td>
+
+
+    </tr> 
+    {% endfor %}
+    </table>
+</body>
+</html>
+{% endblock books%}

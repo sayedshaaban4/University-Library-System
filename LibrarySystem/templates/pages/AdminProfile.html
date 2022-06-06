@@ -1,0 +1,59 @@
+{% load static %}
+{% block admin %}
+
+<html>
+<head>
+    <title> {{user.username}} </title>
+    <link rel="stylesheet" href="{% static 'css/Admin.css'%}">
+</head>
+
+<body >
+
+    <div class="hhh">
+    <div>FCAI Library</div>
+    <a href="{% url 'Home'%}"><button type="button">Log out </button></a>
+    </div>
+
+
+    <div class="container">
+<p id="ad">Admin</p>
+
+<div class="yarab">
+    <div class="profile">
+        <img src="{% static 'images/avatar3.png'%}" alt="">
+        <br>
+        
+    </div>
+
+    <div class="adding">
+<button class="update">
+    <a href="{% url 'addbook'%}">Add a Book</a>
+</button>
+<!--<button class="book">Add a book</button>-->
+<button class="update">
+    <a href="{% url 'adminBooks'%}">Update Books</a>
+</button>
+<button class="AvailableBooks">
+    <a href="{% url 'Books'%}">All Books</a>
+</button>
+<button class="AvailableBooks">
+    <a href="{% url 'mybooks'%}">My Books</a>
+</button>
+
+</div>    
+
+</div>
+    <div class="information">
+<p>Name : {{user.username}}</p>
+<p>Email : {{user.email}}</p>
+<button>
+    <a href="{% url 'updateAdminProfile'%}">Update</a>
+</button>
+    </div>
+</div>
+
+<script src="{% static 'JS/Admin.js'%}"></script>
+
+</body>
+</html>
+{% endblock admin %}

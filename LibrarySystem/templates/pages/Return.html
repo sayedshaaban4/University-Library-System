@@ -1,0 +1,32 @@
+{% load static %}
+{% block operations %}
+
+<html>
+    <head>
+     <link rel="stylesheet" href="{% static 'css/Operations.css'%}">
+    </head>
+    <body style="background-image: url({% static 'images/Book-Glasses-Coffee.jpg' %}); background-size: cover; text-align: center;">
+      <header>Your Return was Done</header>
+        <div>
+        <img src="{% static 'images/book.png'%}" alt="">
+        <br><br> <br>
+        <label id ="label1">{{book_detail.bookname}}</label>
+        <br> <br> <br>
+        <a href="{% url 'mybooks' %}"><button>My Books</button></a>
+        <br><br>
+        {% if profile.type == "Admin"%}
+        <a href="{% url 'admin'%}"><button>Profile</button></a>
+        {% endif %}
+        {% if profile.type == "Student"%}
+        <a href="{% url 'student'%}"><button>Profile</button></a>
+        {% endif %}
+      
+        
+        </div>
+
+
+
+
+    </body>
+</html>
+{% endblock operations %}

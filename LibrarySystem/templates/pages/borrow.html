@@ -1,0 +1,47 @@
+{% load static %}
+{% block borrow %}
+
+<html>
+    <head>
+       <link rel="stylesheet" href="{% static 'css/Borrow.css'%}">
+       <script>
+           function validation(form){
+                var period = form.period.value;
+                
+                if(period == ''){
+                    alert("Error: Please enter Period !");
+                    form.period.focus();
+                    return false;
+                }
+                if(period == 0){
+                    alert("Error: Please enter Period Number Greater than 0 !");
+                    form.period.focus();
+                    return false;
+                }
+
+                return true;
+
+            }
+       </script>
+
+    </head>
+    <body style="background-image: url({% static 'images/operations.jpg' %}); background-size: cover">
+            <a href="{% url 'Books'%}"><button style="background-color:burlywood;
+                color: white;
+                border-radius: 25px;
+                display: inline-block;
+                padding: 8px 16px;">Back</button></a>
+        <header>Borrowing Form</header>
+        <form method="POST" onsubmit="return validation(this);">
+            {% csrf_token %}
+            <label  name="Name">Borrowing Period</label>
+            <br>
+            <input class="name" type="number" name="period" placeholder="Enter the period">
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        
+    </body>
+</html>
+{% endblock borrow %}

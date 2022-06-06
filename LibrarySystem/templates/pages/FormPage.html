@@ -1,0 +1,85 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block formcontent %}
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <head>
+    <title> Sign Up </title>
+    <link rel="stylesheet" href="{% static 'css/FormPageStyle.css'%}">
+    <script>
+      function validation(form){
+        var gender = form.gender.value;
+        var type = form.type.value;
+
+        if(gender == "" ){
+            alert("Error: Please enter Your Gender !");
+            form.gender.focus();
+            return false;
+        }
+        if(type == ""){
+            alert("Error: Please enter The User Type !");
+            form.type.focus();
+            return false;
+        }
+
+        return true;
+
+      } 
+    </script>
+  </head>
+
+
+<body style="background-image: url({% static 'images/books.jpg'%}); background-size: cover;">
+  <div class="header"><p>Sign Up</p></div>
+  
+
+<div class="form">
+    <form method="POST" onsubmit="return validation(this);">
+      {% csrf_token %}
+
+    <div class="form_element">
+      {{form.username|as_crispy_field}}
+    </div>
+    <br>
+    <div >
+      {{form.email|as_crispy_field}}
+    </div>
+    <br>
+    <div class="form_element">
+      {{form.password1|as_crispy_field}}
+    </div>
+    <br>
+    <div class="form_element">
+      {{form.password2|as_crispy_field}}
+    </div>
+    <br>
+    
+      <label class="Gender" >Gender</label>
+      <input type="radio" id="Male" name="gender" value="Male">
+      <label class="Male" for="Male" >Male</label>
+      <input type="radio" id="Female" name="gender" value="Female">
+      <label for="Female" >Female</label>
+      <br>
+    <div class="SU">
+      <label class="signUp" >Sing Up AS</label>
+      <input type="radio" id="Admin" name="type" value="Admin">
+      <label for="Admin" >Admin</label>
+      <input type="radio" id="Student" name="type" value="Student">
+      <label for="Student" >Student</label>
+      </div>
+    
+    <input type="submit" value="Sing Up" >
+    <button>
+      <a href="{% url 'Home'%}" class="Home">Back To Home</a>
+    </button>
+  </form>
+</div>
+</div>
+</body>
+</html>
+{% endblock formcontent %}

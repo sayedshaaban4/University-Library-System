@@ -1,0 +1,55 @@
+
+
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block logincontent %}
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/loginStyle.css'%}">
+    <title> Login </title>
+
+    <script src="{% static 'JS/loginValidation.js'%}"></script>
+
+</head>
+
+<body style="background-image: url({% static 'images/books.jpg'%}); background-size: cover;">
+    <p class="p">Log In</p>
+    <div class="form">
+        <div class="t1">
+            <!--<form method="POST" class="f1" onsubmit="return validation(this);">-->
+                <form method="POST" class="f1">
+                {% csrf_token %}
+                
+                <!--<label class="l1">Email</label>
+                <br>
+                <input type="text" id="email" placeholder="Email" class="ll1">
+                <br>
+                <label class="l1">password</label>
+                <br>
+                <input type="password" id="password" placeholder="password" class="ll1">
+                -->
+
+                <div class="form_element">
+                    {{form.username|as_crispy_field}}
+                </div>
+                <br>
+                <div class="form_element">
+                    {{form.password|as_crispy_field}}
+                </div>
+                
+                <input type="submit" value="Log in" class="b1">
+                <p>Don't have an email ? <button class="signup"><a href="{% url 'FormPage'%}">Sign Up</a></button></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock logincontent %}

@@ -1,0 +1,25 @@
+{% load static %}
+{% block addbook %}
+<html style="background-image:url({% static 'images/library.jpg' %}); background-size: cover;">
+    <head>
+        <link rel="stylesheet" href="{% static 'css/addbook.css'%}">
+    </head>
+    <body>
+        <div id="a">
+        <h1>Updating a Profile</h1><br><br>
+        <div id="all">
+            <form method="POST" >
+                {% csrf_token %}
+               <label>Username : </label>
+               <input type="text"  name="username" placeholder="{{user.username}}">
+               <label>Email : </label>
+               <input type="email" name="email" placeholder="{{user.email}}">
+               
+               <a href="{% url 'admin'%}"><button type="button">Back to profile </button></a>
+               <button type="submit" id="b1">Update</button>
+           </form>
+        </div>
+    </div>
+    </body>
+</html>
+{% endblock addbook%}
